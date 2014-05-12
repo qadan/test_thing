@@ -1,0 +1,5 @@
+name = Test Thing
+description = It's a test!
+package = Test Thing
+version = 7.x-dev
+core = 7.x

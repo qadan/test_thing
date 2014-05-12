@@ -1,0 +1,47 @@
+<?php
+
+class TestThingTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Test Thing Tests',
+      'description' => 'Tests to test the test testy testing test whooop',
+      'group' => 'Test Thing',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp(array('test_thing'));
+  }
+
+  protected function runABatch() {
+    module_load_include('inc', 'test_thing', 'includes/magic');
+    $stuff = array(
+      'thing 1',
+      'thing 2',
+      'thing 3',
+    );
+    test_thing_run_fake_batch($stuff);
+  }
+
+  protected function assertDBEntries() {
+    $entries = db_select('test_whatever', 't')
+      ->fields('t')
+      ->execute()
+      ->fetchAllKeyed();
+    $this->assertTrue($entries[1] = 'thing 1');
+    $this->assertTrue($entries[2] = 'thing 2');
+    $this->assertTrue($entries[3] = 'thing 3');
+  }
+
+  public function testOne() {
+    $this->runABatch();
+    $this->assertDBEntries();
+
+  }
+
+  public function testTwo() {
+    $this->runABatch();
+    $this->assertDBEntries();
+  }
+}

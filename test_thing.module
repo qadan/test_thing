@@ -1,0 +1,14 @@
+<?php
+
+function test_thing_menu() {
+  return array(
+    'test_thing' => array(
+      'title' => 'Test Thing',
+      'description' => "Bulks up your database.",
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'includes/thing.form.inc',
+      'page callback' => 'test_thing_fake_form',
+      'access arguments' => array('access administration menu'),
+    ),
+  );
+}

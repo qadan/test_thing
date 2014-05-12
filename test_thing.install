@@ -1,0 +1,22 @@
+<?php
+
+function test_thing_schema() {
+  return array(
+    'test_whatever' => array(
+      'description' => 'totes fake',
+      'fields' => array(
+        'id' => array(
+          'description' => 'key',
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+        'value' => array(
+          'description' => 'just, like, whatever',
+          'type' => 'varchar',
+          'length' => 64,
+        ),
+      ),
+    ),
+  );
+}
